@@ -1,6 +1,6 @@
 # Plastic Memory Constructor
 
-Demonstrating and visualizing hierarchial learning, automated abstraction &amp; plasticity.
+Demonstrating and visualizing hierarchial learning, automated abstraction &amp; plasticity. This repository is meant to be mostly meant a simple hackable educational tool.
 
 Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, learning the first 40 names in the [makemore](https://github.com/karpathy/makemore) dataset.
 
