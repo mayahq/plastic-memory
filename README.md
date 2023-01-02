@@ -2,13 +2,18 @@
 
 Demonstrating and visualizing hierarchial learning, automated abstraction &amp; plasticity.
 
---
+Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, learning the first 40 names in the [makemore](https://github.com/karpathy/makemore) dataset.
+
+## Get started
+
+1. Install the requirements in `requirements.txt`. The basic implementation only requires `numpy` and `networkx` but you can optionally install `graphviz` to visualize graphs by following instructions [here](https://graphviz.readthedocs.io/en/stable/).
+2. Follow the instructions in [`notebooks/01_introduction.ipynb`](notebooks/01_introduction.ipynb).
+
+## About
 
 Plastic memory is an experimental learning technique that learns by arranging information in a intelligence system as a hierarchical abstraction tree, and the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
 
 The process is analogous to the refactoring of a software tree, which starts off with low-level standard libraries, and gradually builds higher-level concepts or _abstractions_ by combining lower-level concepts together. The process exhibits the following properties :
-
-Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, learning the first 40 names in the [makemore](https://github.com/karpathy/makemore) dataset.
 
 ## Features :
 
