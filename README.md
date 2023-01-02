@@ -13,6 +13,8 @@ Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, l
 
 Plastic memory is an experimental _seq2seq_ learning technique that learns by arranging information as a hierarchical abstraction tree, with the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
 
+We call it _plastic_ because unlike tradition neural networks which are rigid/hard to update, the plastic memory is explicitly _mouldable_ and _flexible_ over the long-term.
+
 The process is analogous to the refactoring of a software tree, which starts off with low-level standard libraries, and gradually builds higher-level concepts or _abstractions_ by combining lower-level concepts together. The process exhibits the following properties :
 
 ## Features :
