@@ -7,7 +7,7 @@ Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, l
 ## Get started
 
 1. Install the requirements in `requirements.txt`. The basic implementation only requires `numpy` and `networkx` but you can optionally install `graphviz` to visualize graphs by following instructions [here](https://graphviz.readthedocs.io/en/stable/).
-2. Follow the instructions in [`notebooks/01_introduction.ipynb`](notebooks/01_introduction.ipynb).
+2. Follow the instructions in [`01_introduction.ipynb`](01_introduction.ipynb).
 
 ## About
 

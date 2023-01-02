@@ -103,7 +103,7 @@ class PlasticNetworkConstructor():
             else:
                 # print("ADDING: ", source_node, target_node)
                 w.edge(source_node, target_node)
-            print("adding: %s -> %s | time: --- %s seconds ---" % (source_node,target_node, time.time() - start_time))
+            # print("adding: %s -> %s | time: --- %s seconds ---" % (source_node,target_node, time.time() - start_time))
         for node in highlight_nodes:
             highlighted_node = self.get_node_with_info(node, with_counts, with_r_levels)
             w.node(highlighted_node, style='filled', fillcolor = highlight_colour, color = highlight_colour, fontcolor='white')
