@@ -1,6 +1,6 @@
 # Plastic Memory Constructor
 
-This repository is meant to mostly be simple hackable educational tool to demonstrate/iterate on a basic implementation of _plastic memory_ including core features : hierarchial learning, autonomous abstraction, and synaptic potentation.
+This repository is meant to mostly be a simple hackable educational tool to demonstrate/iterate on a basic implementation of _plastic memory_ including core features : hierarchial learning, autonomous abstraction, and synaptic potentation.
 
 Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, learning the first 40 names in the [makemore](https://github.com/karpathy/makemore) dataset.
 
