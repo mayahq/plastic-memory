@@ -2,10 +2,13 @@
 # 2. on inference, predicts sequence using markovian kernels, creates query, fetches info
 # 3. on learning, find closes match abstraction, sends  
 
-from plastic_network import PlasticNetworkConstructor
 import networkx as nx
+from plastic_network import PlasticNetworkConstructor
 import os
+import time
+import graphviz
 from utils import get_descendants_with_counts
+import warnings
 
 VISUALIZE_ACTIVATIONS = False
 
@@ -26,10 +29,18 @@ def get_prefix_matches(string_to_match, r_level_items):
 class PlasticPrefixNetwork(PlasticNetworkConstructor):
     def __init__(self, samples=[]):
         self.graph = self.init_samples(samples)
+        
+    def save(self, filename="graph.gpickle"):
+        nx.write_gpickle(self.graph, filename)
+    
+    def load(self, filename="graph.gpickle"):
+        self.graph = nx.read_gpickle(filename)
+
     def init_samples(self, samples):
         self.graph = nx.DiGraph()
         self.learn_multiple(samples)
         return self.graph
+
     def learn_multiple(self,samples):
         if len(samples)>0:
             for sample in samples:
@@ -50,10 +61,12 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
             self.visualize_activation(highlight_edges=self.graph.in_edges(node),highlight_nodes=[node], highlight_colour='darkblue', with_counts=True, with_r_levels=True)
         for u,v in self.graph.in_edges(node):
             self.potentiate(u)
+
     def add_node(self, node, **kwargs):
         print("adding node : ", node, " with data ", kwargs)
         if not self.graph.has_node(node):
             self.graph.add_node(node, **kwargs)
+
     def add_edge(self, source, target, **kwargs):
         print("adding edge : ", source, " -> ", target, " with data ", kwargs)
         if not self.graph.has_edge(source, target) and source != target:
@@ -69,6 +82,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
         # select longest matched prefix
         selected_key = list(sorted(prefix_count.keys(), key=len))[-1]
         return selected_key, prefix_count[selected_key]['matches']
+
     def check_all_substrings(self, match_string, strings):
         substrings = []
         for string in strings:
@@ -76,6 +90,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
                 substrings.append(string)
 
         return substrings
+
     def insert_at_level(self, teach_string, match_string, match_nodes, below_nodes, r_level):
         print("insert %s  at r_level %s ..." % (match_string, r_level))
         edges_to_remove = []
@@ -99,6 +114,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
         if not exists:
             self.r_lift_signal(match_string)
         self.potentiate(teach_string)
+
     def recursive_insert(self, prefix_count, teach_string, current_r_level, refactorings):
         match_string, match_nodes = self.select_match_string(prefix_count)
         print("CHECKING : ", match_string)
@@ -117,6 +133,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
         elif below_level not in refactorings.keys():
             print("one level down doesn't exist, hence inserting at one level down.")
             self.insert_at_level(teach_string, match_string, match_nodes, [], current_r_level-1)
+
     def learn(self, teach_string):
         # ALGO STARTS HERE
         print("LEARNING: ", teach_string)
@@ -132,6 +149,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
             print("PREFIX COUNT : ", prefix_count)
             self.recursive_insert(prefix_count, teach_string,current_r_level, refactorings)
         print("---END---")
+
     def infer(self, inference_string : str, visualize=False, stop_token="_"):
         print("REFACTORINGS:")
         # refactorings_w_counts = get_refactorings_with_counts(refactorings, G)
@@ -182,3 +200,18 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
             print("END RESULT: ", current_inference_string)
         else:
             print("Insufficient data : Could not find start token.")
+    
+    def get_node_with_info(self, node, with_counts, with_r_levels):
+        content = node
+        if with_counts:
+            try:
+                content += " (c" + str(self.graph.nodes[node]['count']) + ")"
+            except Exception as e:
+                warnings.warn("Error occurred at node" + node + " " + str(e))
+        if with_r_levels:
+            try:
+                content += " (r" + str(self.graph.nodes[node]['r_level']) + ")"
+            except Exception as e:
+                warnings.warn("Error occurred at node " + node + " " + str(e))
+
+        return content
