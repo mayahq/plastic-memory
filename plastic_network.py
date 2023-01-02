@@ -10,9 +10,15 @@ class PlasticNetworkConstructor():
         self.graph = nx.DiGraph()
 
     def save(self, filename="graph.gpickle"):
+        """
+        Save the graph to pickle file.
+        """
         nx.write_gpickle(self.graph, filename)
     
     def load(self, filename="graph.gpickle"):
+        """
+        Load a graph from a pickle file.
+        """
         self.graph = nx.read_gpickle(filename)
 
     def add_node(self, node, **kwargs):
