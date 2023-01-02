@@ -1,6 +1,8 @@
 # Plastic Memory Constructor
 
-## Demonstrating and visualizating hierarchial learning, automated abstraction &amp; plasticity.
+Demonstrating and visualizating hierarchial learning, automated abstraction &amp; plasticity.
+
+--
 
 Plastic memory learning is an experimental technique that imagines the information stored in a system as a hierarchical abstraction tree, and the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
 
