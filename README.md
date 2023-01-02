@@ -30,10 +30,11 @@ The fundamental learning algorithm can be compared against other traditional seq
 
 ## Further directions
 
-1. Better/complex ways to find (subgraph) isomorphisms
-2. Better refactoring algorithms
-3. Analysis of sample order to learning efficiency/time
-4. De-potentiation - potentiating a negative or fractional signal based on environmental feedback
-5. Larger/more complex datasets (ARC, etc)
-6. SDRs : Cortex-like sparse dense representations of incoming data
-7. Training on list-like functional DSLs
+- Better/complex ways to find (subgraph) isomorphisms
+- Better refactoring algorithms
+- Analysis of sample order to learning efficiency/time
+- De-potentiation - potentiating a negative or fractional signal based on environmental feedback
+- Larger/more complex datasets (ARC, etc)
+- SDRs : Cortex-like sparse dense representations of incoming data
+- Training on list-like functional DSLs
+- Finding similarities/differences with biological learners
