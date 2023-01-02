@@ -28,7 +28,7 @@ The process is analogous to the refactoring of a software tree, which starts off
 
 The fundamental learning algorithm can be compared against other traditional seq2seq prediction methods (like Transformers, RNNs) out-of-the-box on the same first names dataset by running tests against their handy implementations in Andrej Karpathy's [makemore](https://github.com/karpathy/makemore) repository.
 
-## Further directions
+## Further exploration:
 
 - Better/complex ways to find (subgraph) isomorphisms
 - Better refactoring algorithms
