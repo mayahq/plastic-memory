@@ -36,6 +36,6 @@ The fundamental learning algorithm can be compared against other traditional seq
 - Experimenting with different priors to create base hierarchy
 - De-potentiation - potentiating a negative or fractional signal based on environmental feedback
 - Larger/more complex datasets (ARC, etc)
-- SDRs : Cortex-like sparse dense representations of incoming data
+- SDRs : Brain-like sparse dense representations of incoming data
 - Training on list-like functional DSLs
 - Finding similarities/differences with biological learners
