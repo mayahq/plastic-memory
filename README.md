@@ -11,7 +11,7 @@ Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, l
 
 ## About
 
-Plastic memory is an experimental _sequence prediction technique_ that learns by arranging information as a hierarchical abstraction tree, with the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
+Plastic memory is an experimental _seq2seq_ learning technique that learns by arranging information as a hierarchical abstraction tree, with the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
 
 The process is analogous to the refactoring of a software tree, which starts off with low-level standard libraries, and gradually builds higher-level concepts or _abstractions_ by combining lower-level concepts together. The process exhibits the following properties :
 
@@ -26,4 +26,4 @@ The process is analogous to the refactoring of a software tree, which starts off
 
 ## Compare:
 
-The fundamental learning algorithm can be compared against other traditional sequence prediction methods (like Transformers, RNNs) out-of-the-box on the same first names dataset by running tests against their handy implementations in Andrej Karpathy's [makemore](https://github.com/karpathy/makemore) repository.
+The fundamental learning algorithm can be compared against other traditional seq2seq prediction methods (like Transformers, RNNs) out-of-the-box on the same first names dataset by running tests against their handy implementations in Andrej Karpathy's [makemore](https://github.com/karpathy/makemore) repository.
