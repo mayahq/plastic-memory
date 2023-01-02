@@ -132,7 +132,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
             print("PREFIX COUNT : ", prefix_count)
             self.recursive_insert(prefix_count, teach_string,current_r_level, refactorings)
         print("---END---")
-    def infer(self, inference_string : str, visualize=False):
+    def infer(self, inference_string : str, visualize=False, stop_token="_"):
         print("REFACTORINGS:")
         # refactorings_w_counts = get_refactorings_with_counts(refactorings, G)
         refactorings = self.get_refactorings()
@@ -168,7 +168,7 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
                     self.visualize_activation(highlight_edges=[(current_inference_string, next_inference_string)], highlight_colour="blue", output_folder="view/inference")
                 current_inference_string = next_inference_string
 
-            while not current_inference_string.endswith("_"):
+            while not current_inference_string.endswith(stop_token):
                 print("STEP", step_counter, " -- ", current_inference_string)
                 step_counter += 1
                 transition_samples = get_descendants_with_counts(self.graph, current_inference_string)
