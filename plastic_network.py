@@ -1,6 +1,4 @@
-from enlist_refactorings_graph import parse_seq_idx
 import networkx as nx
-import numpy as np
 import graphviz
 import time
 import warnings

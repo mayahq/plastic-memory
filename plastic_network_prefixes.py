@@ -5,8 +5,6 @@
 import networkx as nx
 from plastic_network import PlasticNetworkConstructor
 import os
-import time
-import graphviz
 from utils import get_descendants_with_counts
 import warnings
 
@@ -29,7 +27,7 @@ def get_prefix_matches(string_to_match, r_level_items):
 class PlasticPrefixNetwork(PlasticNetworkConstructor):
     def __init__(self, samples=[]):
         self.graph = self.init_samples(samples)
-        
+
     def save(self, filename="graph.gpickle"):
         nx.write_gpickle(self.graph, filename)
     
