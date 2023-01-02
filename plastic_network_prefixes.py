@@ -1,12 +1,8 @@
-# 1. browser just represents the edges, the path through the edges creates the query to the lookup table
-# 2. on inference, predicts sequence using markovian kernels, creates query, fetches info
-# 3. on learning, find closes match abstraction, sends  
 
 import networkx as nx
 from plastic_network import PlasticNetworkConstructor
 import os
 from utils import get_descendants_with_counts
-import warnings
 
 VISUALIZE_ACTIVATIONS = False
 
@@ -60,21 +56,6 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
         for u,v in self.graph.in_edges(node):
             self.potentiate(u)
 
-    def add_node(self, node, **kwargs):
-        print("adding node : ", node, " with data ", kwargs)
-        if not self.graph.has_node(node):
-            self.graph.add_node(node, **kwargs)
-
-    def add_edge(self, source, target, **kwargs):
-        print("adding edge : ", source, " -> ", target, " with data ", kwargs)
-        if not self.graph.has_edge(source, target) and source != target:
-            self.graph.add_edge(source, target, **kwargs)
-    
-    def remove_edge(self, source, target):
-        print("removing edge : ", source, " -> ", target)
-        if self.graph.has_edge(source, target):
-            self.graph.remove_edge(source, target)
-
     def select_match_string(self, prefix_count):
         # selected_key = list(prefix_count)[0]
         # select longest matched prefix
@@ -104,8 +85,6 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
         self.add_edge(match_string, teach_string)
         for node in match_nodes:
             self.add_edge(match_string, node)
-
-        
 
         for node in below_nodes:
             self.add_edge(node, match_string)
@@ -198,18 +177,3 @@ class PlasticPrefixNetwork(PlasticNetworkConstructor):
             print("END RESULT: ", current_inference_string)
         else:
             print("Insufficient data : Could not find start token.")
-    
-    def get_node_with_info(self, node, with_counts, with_r_levels):
-        content = node
-        if with_counts:
-            try:
-                content += " (c" + str(self.graph.nodes[node]['count']) + ")"
-            except Exception as e:
-                warnings.warn("Error occurred at node" + node + " " + str(e))
-        if with_r_levels:
-            try:
-                content += " (r" + str(self.graph.nodes[node]['r_level']) + ")"
-            except Exception as e:
-                warnings.warn("Error occurred at node " + node + " " + str(e))
-
-        return content

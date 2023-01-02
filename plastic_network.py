@@ -15,6 +15,26 @@ class PlasticNetworkConstructor():
     def load(self, filename="graph.gpickle"):
         self.graph = nx.read_gpickle(filename)
 
+    def add_node(self, node, **kwargs):
+        print("adding node : ", node, " with data ", kwargs)
+        if not self.graph.has_node(node):
+            self.graph.add_node(node, **kwargs)
+
+    def remove_node(self, node):
+        print("removing node : ", node)
+        if self.graph.has_node(node):
+            self.graph.remove_node(node)
+
+    def add_edge(self, source, target, **kwargs):
+        print("adding edge : ", source, " -> ", target, " with data ", kwargs)
+        if not self.graph.has_edge(source, target) and source != target:
+            self.graph.add_edge(source, target, **kwargs)
+    
+    def remove_edge(self, source, target):
+        print("removing edge : ", source, " -> ", target)
+        if self.graph.has_edge(source, target):
+            self.graph.remove_edge(source, target)
+
     def get_refactorings_by_r_level(self, r_level):
         return [x for x,y in self.graph.nodes(data=True) if y['r_level']==r_level]
 

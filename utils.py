@@ -1,5 +1,3 @@
-import torch
-# from torch.nn.functional import normalize
 import networkx as nx
 import numpy as np
 import math
