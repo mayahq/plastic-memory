@@ -8,7 +8,7 @@ Plastic memory learning is an experimental technique that imagines the informati
 
 The process is analogous to the refactoring of a software tree, which starts off with low-level standard libraries, and gradually builds higher-level concepts or _abstractions_ by combining lower-level concepts together. The process exhibits the following properties, also evident in many biological learning systems :
 
-1. **Lifelong learning** : No gradient descent - weights get continuously updated via local "synaptic firings" as it exposed to samples.
+1. **Continuous learning** : No gradient descent - weights get continuously updated via local "synaptic firings" as it exposed to samples.
 2. **Sample efficiency** : Dimensionality reduction via finding similarities/isomorphisms and refactoring them into a hierarchical tree
 3. **Growing concept hierarchies** : Refactoring process creates abstract hierarchical concept libraries (demo [here](https://youtu.be/ONSVN4-Hua0) shows this for 32k first names from the makemore dataset, takes ~2 mins to train. note how the library grows from 1 r_level to 9 r_levels)
 4. **Curriculum learning** : The order in which it is shown information plays a big role, simpler concepts shown first accelerate creating higher-level concepts later. As far as I see (subject to more testing), ideal information order is that where cumulative info entropy with every additional sample increases at a constant rate
