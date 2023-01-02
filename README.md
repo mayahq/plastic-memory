@@ -4,9 +4,9 @@ Demonstrating and visualizing hierarchial learning, automated abstraction &amp; 
 
 --
 
-Plastic memory learning is an experimental technique that imagines the information stored in a system as a hierarchical abstraction tree, and the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
+Plastic memory is an experimental learning technique that learns by arranging information in a intelligence system as a hierarchical abstraction tree, and the process of learning as the dual mechanism of _non-local refactoring_ i.e. finding similarities and abstracting them out in the tree and _local synaptic firings_ i.e. strengthening / weakening pathways through the tree.
 
-The process is analogous to the refactoring of a software tree, which starts off with low-level standard libraries, and gradually builds higher-level concepts or _abstractions_ by combining lower-level concepts together. The process exhibits the following properties, also evident in many biological learning systems :
+The process is analogous to the refactoring of a software tree, which starts off with low-level standard libraries, and gradually builds higher-level concepts or _abstractions_ by combining lower-level concepts together. The process exhibits the following properties :
 
 1. **Continuous learning** : No gradient descent - weights get continuously updated via local "synaptic firings" as it exposed to samples.
 2. **Sample efficiency** : Dimensionality reduction via finding similarities/isomorphisms and refactoring them into a hierarchical tree
