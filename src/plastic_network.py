@@ -1,7 +1,7 @@
 import networkx as nx
 import time
 import warnings
-from utils import create_transition_matrix, plot_transition_matrix, generate_probability_rank_list, sort_dict_by_value, get_descendants_with_counts, get_counter, get_entropy
+from utils import create_transition_matrix, plot_transition_matrix, generate_probability_rank_list, sort_dict_by_value, get_descendants_with_counts, get_counter, get_entropy, format_and_write_csv
 
 class PlasticNetworkConstructor():
     def __init__(self):
@@ -61,15 +61,17 @@ class PlasticNetworkConstructor():
         transition_matrix, samples = create_transition_matrix(counter)
         plot_transition_matrix(transition_matrix, counter)
         rank_list = generate_probability_rank_list(samples, transition_matrix, current_inference_string)
-        print(sort_dict_by_value(rank_list))
+        # print(sort_dict_by_value(rank_list))
         selected = sort_dict_by_value(rank_list)[-1]
         return selected, rank_list
 
     def get_next_inference_string(self, transition_samples, current_inference_string):
+        print("Current inference string: ", current_inference_string)
         selected, ranked_list = self.get_ranked_result(transition_samples, current_inference_string)
-        print("get_next_inference_string: ", selected, ranked_list)
+        print("Selecting : ", selected, " with p ", ranked_list[selected])
         # next_inference_string = inference_string + selected
         next_inference_string = current_inference_string + selected
+        print("Next inference string:", next_inference_string)
         return next_inference_string, True
         
     def get_node_with_info(self, node, with_counts, with_r_levels):
@@ -120,4 +122,7 @@ class PlasticNetworkConstructor():
         w = self.get_graphviz_obj(highlight_edges=highlight_edges, highlight_nodes=highlight_nodes, highlight_colour=highlight_colour, output_folder=output_folder, with_counts=with_counts, with_r_levels=with_r_levels)
         w
         return w
+
+    def format_and_write_csv(self):
+        format_and_write_csv(self.graph)
 

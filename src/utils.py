@@ -55,16 +55,15 @@ def generate_probability_rank_list(samples, transition_matrix, input):
     index = [i for i,x in enumerate(samples) if x == input]
     if len(index) > 0:
         one_hot_vector[0][index] = 1.0
-    print("--- inferring for : ", index)
-    print("SAMPLES: ", samples)
-    print("INFERENCE VECTOR:", infer_probabilities(one_hot_vector, samples))
+    # print("--- inferring for : ", index)
+    # print("SAMPLES: ", samples)
+    # print("INFERENCE VECTOR:", infer_probabilities(one_hot_vector, samples))
     # Multiply the one-hot vector with the transition matrix
     result = np.matmul(one_hot_vector, transition_matrix)
 
     # Print the resulting vector
-    print("TESTING:", result, samples)
-    print("INFERENCE RESULT:", infer_probabilities(result, samples))
-    print("--- inference ended")
+    print("NEXT STRING PROBABILITIES:", infer_probabilities(result, samples))
+    # print("--- inference ended")
     return infer_probabilities(result, samples)
 
 # define a function that takes a dictionary as input
@@ -145,7 +144,7 @@ def write_csv(write_array, file):
         for item in write_array:
             writer.writerow(item)    
         
-    print("Writing complete")  
+    print("Writing complete: ", file)  
 
 def format_and_write_csv(graph: nx.DiGraph):
      
