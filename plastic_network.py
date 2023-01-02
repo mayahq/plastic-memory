@@ -1,9 +1,7 @@
 import networkx as nx
-import graphviz
 import time
 import warnings
 from utils import create_transition_matrix, plot_transition_matrix, generate_probability_rank_list, sort_dict_by_value, get_descendants_with_counts, get_counter, get_entropy
-
 
 class PlasticNetworkConstructor():
     def __init__(self):
@@ -90,7 +88,7 @@ class PlasticNetworkConstructor():
         return content
 
     def get_graphviz_obj(self, highlight_edges=[], highlight_nodes=[], highlight_colour='blue', output_folder=None, with_counts=False, with_r_levels=False):
-
+        import graphviz
         timestamp = time.time()
         w = graphviz.Digraph("random" + str(timestamp), format='png')
         w.attr(size="100,500")

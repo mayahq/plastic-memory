@@ -22,23 +22,6 @@ def create_transition_matrix(counter):
     transition_matrix = normalize(transition_matrix)
     return transition_matrix, samples
 
-
-# def create_transition_matrix(counter):
-#     # Create a list of the unique words in the Counter object.
-#     samples = list(set([word for pair in counter for word in pair]))
-#     # Create a numpy array with dimensions (number of words) x (number of words).
-#     transition_matrix = torch.zeros((len(samples), len(samples)), dtype=torch.float64)
-#     # print("MATRIX DIMENSION: ",(len(words), len(words)) )
-#     # Loop through the pairs of words in the Counter object and update the adjacency matrix.
-#     for (word1, word2), count in counter.items():
-#         i = samples.index(word1)
-#         j = samples.index(word2)
-#         transition_matrix[i, j] = count
-
-#     # print(transition_matrix.sum(axis=1), transition_matrix.sum(axis=0))
-#     transition_matrix = normalize(transition_matrix, p=1.0, dim = 1)
-#     return transition_matrix, samples
-
 def plot_transition_matrix(transition_matrix, counter):
     import matplotlib.pyplot as plt
     # Use imshow to plot the adjacency matrix as an image.
@@ -64,14 +47,6 @@ def infer_probabilities(tensor, samples):
                 probabilities[samples[i]] = matrix[i]
         return probabilities
 
-# def infer_probabilities(tensor, samples):
-#         matrix = tensor.numpy()[0]
-#         probabilities = {}
-#         for i in range(0, len(matrix)):
-#             if matrix[i] != 0.0:
-#                 probabilities[samples[i]] = matrix[i]
-#         return probabilities
-
 def generate_probability_rank_list(samples, transition_matrix, input):
     # Create a one-hot vector of size 1*4
     size = len(samples)
@@ -92,25 +67,6 @@ def generate_probability_rank_list(samples, transition_matrix, input):
     print("--- inference ended")
     return infer_probabilities(result, samples)
 
-# def generate_probability_rank_list(samples, transition_matrix, input):
-#     # Create a one-hot vector of size 1*4
-#     size = len(samples)
-#     one_hot_vector = torch.zeros((1, size), dtype=torch.float64)
-#     # index = 3
-#     index = [i for i,x in enumerate(samples) if x == input]
-#     if len(index) > 0:
-#         one_hot_vector[0][index] = 1.0
-#     print("--- inferring for : ", index)
-#     print("SAMPLES: ", samples)
-#     print("INFERENCE VECTOR:", infer_probabilities(one_hot_vector, samples))
-#     # Multiply the one-hot vector with the transition matrix
-#     result = torch.matmul(one_hot_vector, transition_matrix)
-
-#     # Print the resulting vector
-#     print("INFERENCE RESULT:", infer_probabilities(result, samples))
-#     print("--- inference ended")
-#     return infer_probabilities(result, samples)
-
 # define a function that takes a dictionary as input
 def sort_dict_by_value(d):
     # create an empty list to store the keys
@@ -126,8 +82,6 @@ def sort_dict_by_value(d):
     
     # return the sorted keys
     return keys
-
-
 
 def get_descendants_with_counts(graph : nx.DiGraph, inference_string):
     sample_list = []
@@ -156,8 +110,6 @@ def get_counter(samples, window_size=1):
                 else:
                     counter[pair] = 1
     return counter
-
-
 
 def get_entropy(data, unit='natural'):
     base = {
