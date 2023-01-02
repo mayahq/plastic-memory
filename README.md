@@ -32,7 +32,8 @@ The fundamental learning algorithm can be compared against other traditional seq
 
 - Better/complex ways to find (subgraph) isomorphisms
 - Better refactoring algorithms
-- Analysis of sample order to learning efficiency/time
+- Experimenting with sample order w.r.t learning efficiency/time
+- Experimenting with different priors to create base hierarchy
 - De-potentiation - potentiating a negative or fractional signal based on environmental feedback
 - Larger/more complex datasets (ARC, etc)
 - SDRs : Cortex-like sparse dense representations of incoming data
