@@ -10,6 +10,8 @@ The process is analogous to the refactoring of a software tree, which starts off
 
 Here is a [demo](https://www.youtube.com/watch?v=OOYJupTzCLI) of it in action, learning the first 40 names in the [makemore](https://github.com/karpathy/makemore) dataset.
 
+## Features :
+
 1. **Continuous learning** : No gradient descent - weights get continuously updated via local "synaptic firings" as it exposed to samples.
 2. **Sample efficiency** : Dimensionality reduction via finding similarities/isomorphisms and refactoring them into a hierarchical tree
 3. **Growing concept hierarchies** : Refactoring process creates abstract hierarchical concept libraries (demo [here](https://youtu.be/ONSVN4-Hua0) shows this for 32k first names from the makemore dataset, takes ~2 mins to train. note how the library grows from 1 r_level to 9 r_levels)
