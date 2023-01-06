@@ -32,8 +32,8 @@ The fundamental learning algorithm can be compared against other traditional seq
 
 ## Further exploration:
 
-- Better/complex ways to find (subgraph) isomorphisms
-- Better refactoring algorithms
+- Better/local ways to find (subgraph) isomorphisms
+- Better, more localized refactoring algorithms
 - Experimenting with sample order w.r.t learning efficiency/time
 - Experimenting with different priors to create base hierarchy
 - De-potentiation - potentiating a negative or fractional signal based on environmental feedback
