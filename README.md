@@ -33,7 +33,7 @@ The fundamental learning algorithm can be compared against other traditional seq
 ## Further exploration:
 
 - Better/local ways to find (subgraph) isomorphisms
-- Express algorithms in lambda calculus / functional spec
+- Express algorithms using lambda calculus / a purely functional spec
 - Better, more localized refactoring algorithms
 - Experimenting with sample order w.r.t learning efficiency/time
 - Experimenting with different priors to create base hierarchy
