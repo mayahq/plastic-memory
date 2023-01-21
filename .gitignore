@@ -14,6 +14,7 @@ profile-123
 build/
 develop-eggs/
 dist/
+archive/
 downloads/
 eggs/
 .eggs/
